@@ -1,0 +1,22 @@
+[build-system]
+requires      = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "loudtqdm"
+version         = "0.1.0"
+description     = "tqdm but it beeps at you — old-school machine-loading sounds"
+readme          = "README.md"
+requires-python = ">=3.10"
+license         = { text = "MIT" }
+keywords        = ["progress", "tqdm", "audio", "beep", "terminal"]
+
+# Zero runtime dependencies — everything is stdlib + CoreAudio (macOS ctypes)
+dependencies = []
+
+[project.scripts]
+loudtqdm = "loudtqdm.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["loudtqdm*"]
